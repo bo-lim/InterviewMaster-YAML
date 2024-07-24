@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: itm-bce-txt-dpl
+  namespace: itm-bce-txt-nms
+  labels:
+    app: interviewmaster
+    version: v1.0.0
+    tier: backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: interviewmaster
+  template:
+    metadata:
+      labels:
+        app: interviewmaster
+    spec:
+      serviceAccountName: itm-eks-txt-sa2
+      containers:
+      - name: interviewmaster
+        image: leebolim0701471/itm-backend-speech:1.0
+        ports:
+        - containerPort: 8000
+        envFrom:
+        - configMapRef:
+            name: itm-bce-txt-cmp
+        - secretRef:
+            name: itm-bce-txt-scr

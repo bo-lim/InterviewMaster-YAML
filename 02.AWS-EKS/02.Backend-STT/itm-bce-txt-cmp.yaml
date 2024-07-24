@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: itm-bce-txt-nms
+  name: itm-bce-txt-cmp
+  labels:
+    app: interviewmaster
+data:
+  AWS_REGION: "ap-northeast-2"
+  bucket: 'simulation-userdata'
+  OTEL_ENDPOINT_URL: "http://opentelemetry-collector.istio-system.svc.cluster.local:4317"
+  OTEL_PYTHON_LOG_CORRELATION: "true"
+  OTEL_PYTHON_LOG_FORMAT: "%(pathname)s:%(funcName)s:%(lineno)d:%(levelname)s:%(message)s"
+  OTEL_RESOURCE_ATTRIBUTES: "service.instance.id=production,service.name=itm.bce.txt,telemetry.sdk.name=opentelemetry,telemetry.sdk.language=python,telemetry.sdk.version=1.18.0"
+  DEBUG_LOG_OTEL_TO_CONSOLE: "true"
+  DEBUG_LOG_OTEL_TO_PROVIDER: "true"
+  OTEL_PYTHON_LOG_LEVEL: "info"

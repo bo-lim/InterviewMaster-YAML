@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: itm-bce-txt-dpl
+  namespace: itm-bce-txt-nms
+  labels:
+    app: interviewmaster
+    version: v1.0.0
+    tier: backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: interviewmaster
+  template:
+    metadata:
+      labels:
+        app: interviewmaster
+    spec:
+      containers:
+      - name: interviewmaster
+        image: harbor.itm.io/itm/bce-txt:3.1
+        env:
+        - name: aws_access_key_id
+          valueFrom:
+            secretKeyRef:
+              name: bce-txt-scr
+              key: aws_access_key_id
+        - name: aws_secret_access_key
+          valueFrom:
+            secretKeyRef:
+              name: bce-txt-scr
+              key: aws_secret_access_key
+        - name: OPENAI_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: bce-txt-scr
+              key: OPENAI_API_KEY
+
+        ports:
+        - containerPort: 8000

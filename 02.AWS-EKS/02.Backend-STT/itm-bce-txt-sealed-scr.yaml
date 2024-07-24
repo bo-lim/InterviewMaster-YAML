@@ -1,0 +1,15 @@
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: itm-bce-txt-scr
+  namespace: itm-bce-txt-nms
+spec:
+  encryptedData:
+    OPENAI_API_KEY: AgBdQM4nFGteevnMF/QA7N0ooV3jZ1+bkM8cN8medi7f8O8Z31PppVf9AxAXvXnPFe+QBUbIdmK1QRxs31EaVy7G36pcAwYyur6tUJ+ALybnzGXjPU0gIXOu7l6XnqgvTvFXbnSrE0rw+jBUA1u+4DrnM0sjR7EpD+QL2AejsUx5WlplVFco3gEBGLAxgkxHQ5CoyKQjObavZ8yTwmDaOVx7HU0nQcTfUZJJFmaEm4ef1BwdG4hTXd+/qxvG+rlLqUN/CCs6I63x6ObLp5sgDJCwv1UKqpZCilFdAV15yvptebdqRpf9sBS1jlDW7C/MTVuNKLMk6xIMpdUW5YB5n/hDb0uleaxx8XFgZ0CbWeN5NO6IXxySgeb5FvXFNBZNj52aeT7Zq1dPUI0qLEUXROyP9bQmwrWS2Rou+HGQlQWbbvc//aJ5ldYXT6Ms9PVWFsp9dvV/fwdmlfNtHiBN9KfgyxIIIjSWqFZ6z4IDZ6G2BUjDRLqvQbioomtaKozPfuAzdRc6+ep+NAsk3kE8iRd3rmM9xXut3GnZIyp7gSD739aD1P9BCm38NX/w5bYTOa4cdJYaY/QvniJOAswrsv3DA3UqiqM3ThZF1TzrdirVCNNEkTA3a1tqjeTdSdXonSs6apg6cKpHZh1NjhZ3xtFf+vyJqfM7sl+u991GEfjxz3sdGRypinhE/YVh1rk30UcGbFlXulKxwu2b87ZB04H2TZ6jYDN9pJTCOXHqXavatMBcjQpP+i0gXMu84TCzjTB0ChS+gAHusg==
+  template:
+    metadata:
+      creationTimestamp: null
+      name: itm-bce-txt-scr
+      namespace: itm-bce-txt-nms

@@ -1,0 +1,52 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: itm-ist-vsv
+  namespace: istio-system
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - itm-ist-gtw
+  http:
+  - match:
+    - uri:
+        prefix: "/speech"
+    route:
+    - destination:
+        host: "itm-bce-txt-svc.itm-bce-txt-nms.svc.cluster.local"
+        port:
+          number: 8000
+  - match:
+    - uri:
+        prefix: "/question"
+    route:
+    - destination:
+        host: "itm-bce-qst-svc.itm-bce-qst-nms.svc.cluster.local"
+        port:
+          number: 8000
+  - match:
+    - uri:
+        prefix: "/dbr"
+    route:
+    - destination:
+        host: "itm-bce-dbr-svc.itm-bce-dbr-nms.svc.cluster.local"
+        port:
+          number: 8000
+  - match:
+    - uri:
+        prefix: "/dbw"
+    route:
+    - destination:
+        host: "itm-bce-dbw-svc.itm-bce-dbw-nms.svc.cluster.local"
+        port:
+          number: 8000
+  - match:
+    - uri:
+        prefix: "/"
+    route:
+    - destination:
+        host: "itm-fre-all-svc.itm-fre-all-nms.svc.cluster.local"
+        port:
+          number: 3000
+

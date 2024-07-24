@@ -1,0 +1,22 @@
+apiVersion: networking.istio.io/v1
+kind: ServiceEntry
+metadata:
+  name: external-svc-https
+  namespace: default
+spec:
+  hosts:
+  - "*.s3.ap-northeast-2.amazonaws.com"
+  - dynamodb.ap-northeast-2.amazonaws.com
+  - elasticache.ap-northeast-2.amazonaws.com
+  - com.amazonaws.us-east-1.bedrock
+  - kauth.kakao.com
+  - kapi.kakao.com
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  - number: 80
+    name: http
+    protocol: TCP
+  resolution: NONE

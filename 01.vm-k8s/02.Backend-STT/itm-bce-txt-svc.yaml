@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: itm-bce-txt-svc
+  namespace: itm-bce-txt-nms
+spec:
+  selector:
+    app: interviewmaster
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 8000

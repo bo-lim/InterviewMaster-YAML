@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: itm-fre-all-nms
+  labels:
+    app: interviewmaster
+    version: v1.0.0
+    tier: frontend
+  name: itm-fre-all-dpl
+spec:
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: interviewmaster
+      version: v1.0.0
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        app: interviewmaster
+        version: v1.0.0
+        tier: frontend
+    spec:
+      serviceAccountName: itm-eks-fre-sa2
+      containers:
+      - image: kangyejini/im:6.0
+        name: itm-fre-all-pod
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 300Mi
+          requests:
+            cpu: 50m
+            memory: 100Mi
+        ports:
+        - containerPort: 3000
+        env:
+        - name: BUCKET_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: itm-fre-all-cmp
+              key: BUCKET_NAME
+        - name: GET_API
+          valueFrom:
+            configMapKeyRef:
+              name: itm-fre-all-cmp
+              key: GET_API
+        - name: POST_API
+          valueFrom:
+            configMapKeyRef:
+              name: itm-fre-all-cmp
+              key: POST_API
+        - name: STT_POST_API
+          valueFrom:
+            configMapKeyRef:
+              name: itm-fre-all-cmp
+              key: STT_POST_API
+        - name: CHAT_POST_API
+          valueFrom:
+            configMapKeyRef:
+              name: itm-fre-all-cmp
+              key: CHAT_POST_API

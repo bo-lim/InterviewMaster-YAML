@@ -1,0 +1,7 @@
+resources:
+- itm-fre-all-cmp.yaml
+- itm-fre-all-dpl.yaml
+- itm-fre-all-svc.yaml
+- itm-fre-hpa.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization

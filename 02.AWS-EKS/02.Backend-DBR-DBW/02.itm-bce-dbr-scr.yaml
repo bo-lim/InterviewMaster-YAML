@@ -1,0 +1,10 @@
+apiVersion: v1
+data:
+  AWS_KMS_ID: ZjM0OGQ0NzUtMjk3OC00OWNmLTlhODUtN2FhNTY3NTI1YzBl
+  KAKAO_CLIENT_KEY: N2NiOGNlZjFmOGY2ZGY0YjRlOWUyMGNiMGFmZWFlYmM=
+  KAKAO_SECRET_KEY: VjRZblMzanNoOWs1QzA2T09laXgyRUZTeHl6WDVkSW4=
+kind: Secret
+metadata:
+  creationTimestamp: null
+  name: itm-bce-dbr-scr
+  namespace: itm-bce-dbr-nms
